@@ -10,6 +10,11 @@ def read_config(filename):
         'button_panel': False,
         'button_pins': [17,27,22],
         'led_pins': [13,19,26],
+        'led_on_time': 3,
+        'led_off_time':.5,
+        'led_fade_in': .5,
+        'led_fade_out': .5,
+
         'buzzer_pin': 12,
         'default_button' : 0,
         'button_timeout' : 10,
@@ -19,7 +24,7 @@ def read_config(filename):
         'delay':2,
 
         'bc_reader_port' : '/dev/ttyACM0',
-        'bc_timeout' : 1,
+        'bc_timeout' : .5,
         'bc_regex' : '^\d{7,9}#\d{4,5}',
 
         'host' : '10.100.50.104',
@@ -42,6 +47,11 @@ def read_config(filename):
         kiosk_config['button_panel'] = cf.getboolean('IFACE','button_panel')
         kiosk_config['button_pins'] = cf.getlist('IFACE','button_pins')
         kiosk_config['led_pins'] = cf.getlist('IFACE','led_pins')
+        kiosk_config['led_on_time'] = cf.getfloat('IFACE','led_on_time')
+        kiosk_config['led_off_time'] = cf.getfloat('IFACE','led_oFF_time')
+        kiosk_config['led_fade_in'] = cf.getfloat('IFACE','led_fade_in')
+        kiosk_config['led_fade_out'] = cf.getfloat('IFACE','led_fade_out')
+
         kiosk_config['buzzer_pin'] = cf.getint('IFACE','buzzer_pin')
         kiosk_config['default_button'] = cf.getint('IFACE','default_button')
         kiosk_config['button_timeout'] = cf.getint('IFACE','button_timeout')
@@ -51,7 +61,7 @@ def read_config(filename):
         kiosk_config['delay'] = cf.getfloat('IFACE','delay')
 
         kiosk_config['bc_reader_port'] = cf.get('BARCODE','bc_reader_port')
-        kiosk_config['bc_timeout'] = cf.getint('BARCODE','bc_timeout')
+        kiosk_config['bc_timeout'] = cf.getfloat('BARCODE','bc_timeout')
         kiosk_config['bc_regex'] = r'{}'.format(cf.get('BARCODE','bc_regex'))
 
         kiosk_config['host'] = cf.get('REPORT','host')  
