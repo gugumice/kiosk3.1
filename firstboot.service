@@ -1,0 +1,7 @@
+[Unit]
+Description=One time kiosk config boot script
+[Service]
+Type=simple
+ExecStart=/opt/kiosk/initkio.sh
+[Install]
+WantedBy=multi-user.target 
