@@ -1,15 +1,21 @@
 # kiosk3.1 installation
-sudo apt-get update && sudo apt-get upgrade -y
+  sudo apt-get update && sudo apt-get upgrade -y
+
 Set BC reader interface to USB_COM
-i nstall git
+  sudo apt-get install git
+
 create directory for kiosk on RaspberryPI
+
 sudo mkdir /opt/kiosk
 
 set ownership to pi
 sudo chown pi:pi /opt/kiosk
+
 git clone <this repositary> /opt/kiosk/
 make scripts executable
-cd /opt/kiosk
+
+  cd /opt/kiosk
+
 chmod a+x *.py *.sh *.ini
 kiosk.ini should have execute permission!!!
 
