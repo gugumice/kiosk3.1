@@ -3,21 +3,14 @@
 
 Set BC reader interface to USB_COM
   sudo apt-get install git
-
-create directory for kiosk on RaspberryPI
-
-sudo mkdir /opt/kiosk
-
-set ownership to pi
-sudo chown pi:pi /opt/kiosk
-
-git clone <this repositary> /opt/kiosk/
-make scripts executable
-
+Create directory for kiosk on RaspberryPI
+  sudo mkdir /opt/kiosk
+Set ownership to pi
+  sudo chown pi:pi /opt/kiosk
+  git clone <this repositary> /opt/kiosk/
+Make scripts executable
   cd /opt/kiosk
-
-chmod a+x *.py *.sh *.ini
-kiosk.ini should have execute permission!!!
-
+  chmod a+x *.py *.sh *.ini
+  kiosk.ini should have execute permission!!!
 Launch configuration script. This will install required libraries and configure system. Check with sudo raspi_config
-sudo ./preppi.sh
+  sudo ./preppi.sh
