@@ -10,5 +10,7 @@ sudo chown pi:pi /opt/kiosk
 git clone <this repositary> /opt/kiosk/
 make scripts executable
 cd /opt/kiosk
-chmod a+x *.py /opt/kiosk/*.sh
+chmod a+x *.py *.sh
 
+Launch configuration script. This will install required libraries and configure system. Check with sudo raspi_config
+sudo ./preppi.sh
