@@ -1,4 +1,4 @@
-# kiosk3.1
+# kiosk3.1 installation
 sudo apt-get update && sudo apt-get upgrade -y
 Set BC reader interface to USB_COM
 i nstall git
