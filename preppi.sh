@@ -9,6 +9,7 @@ ln /opt/kiosk/firstboot.service /lib/systemd/system/firstboot.service
 ln /opt/kiosk/kiosk.ini /home/pi/kiosk.ini
 systemctl enable firstboot.service
 
+timedatectl set-timezone Europe/Riga
 sed -i '/^# Additional overlays.*/a dtoverlay=pi3-disable-wifi\ndtoverlay=pi3-disable-bt' /boot/config.txt
 sed -i '/^\[all\].*/a gpu_mem=16' /boot/config.txt
 
