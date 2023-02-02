@@ -1,6 +1,5 @@
 #!/bin/bash
 
-raspi-config nonint do_memory_16
 systemctl disable bluetooth.service
 systemctl disable hciuart.service
 apt-get update && apt-get -y upgrade
@@ -11,6 +10,8 @@ ln /opt/kiosk/kiosk.ini /home/pi/kiosk.ini
 systemctl enable firstboot.service
 
 sed -i '/^# Additional overlays.*/a dtoverlay=pi3-disable-wifi\ndtoverlay=pi3-disable-bt' /boot/config.txt
+sed -i '/^\[all\].*/a gpu_mem=16' /boot/config.txt
+
 apt-get --yes install libcups2-dev cups cups-bsd
 cupsctl --remote-admin --remote-any
 usermod -a -G lpadmin pi
