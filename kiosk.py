@@ -179,6 +179,7 @@ def main():
             ledsObj.blink(leds=[buttonsObj.activeButton],n=None,on_time=config['led_on_time'],off_time=config['led_off_time'],
                 fade_in_time=config['led_fade_in'],fade_out_time=config['led_fade_out'])
             lang=config['languages'][buttonsObj.activeButton]
+            utils.speak_status('{}/lang_{}.wav'.format(working_dir,lang.upper()))
             logging.debug('{} selected'.format(lang))
         #Barcode
         bc = bcrObj.next()
