@@ -84,12 +84,11 @@ def init_kiosk():
     working_dir=os.path.dirname(os.path.realpath(__file__))
 
     logging.info('IP address: {}'.format(utils.get_IP()))
-    utils.speak_ip(utils.get_IP(),'LAT',working_dir)
     #Check panel leds
     ledsObj.on()
     buttonsObj.beep(background=False)
     sleep(config['delay'])
-
+    utils.speak_ip(ip=utils.get_IP(),lang='lat',dir=working_dir)
     #Init barcode reader, do not start kiosk while bcr not running
     ledsObj.pulse([2],fade_in_time=.1,fade_out_time=.1,n=None)
     logging.info('Starting BC reader on {}'.format(config['bc_reader_port']))
