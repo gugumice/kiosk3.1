@@ -1,5 +1,6 @@
 [Unit]
 Description=One time kiosk config boot script
+After=network.target
 [Service]
 Type=simple
 ExecStart=/opt/kiosk/initkio.sh
