@@ -1,6 +1,6 @@
 # kiosk3.1 installation
   sudo apt-get update && sudo apt-get upgrade -y
-  reboot computer - for some reason installing git without reboot messes apt
+  reboot computer - it looks like installing git without reboot messes up apt
 
   Set BC reader interface to USB_COM:
   sudo apt-get install git
