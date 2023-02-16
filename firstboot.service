@@ -1,5 +1,5 @@
 [Unit]
-Description=One time kiosk config boot script
+Description=First time boot config script launcher
 After=network.target
 [Service]
 Type=simple
