@@ -88,7 +88,6 @@ def init_kiosk():
     ledsObj.on()
     buttonsObj.beep(background=False)
     sleep(config['delay'])
-    utils.speak_ip(ip=utils.get_IP(),lang='lat',dir=working_dir)
     #Init barcode reader, do not start kiosk while bcr not running
     ledsObj.pulse([2],fade_in_time=.1,fade_out_time=.1,n=None)
     logging.info('Starting BC reader on {}'.format(config['bc_reader_port']))
@@ -163,8 +162,9 @@ def main():
         ledsObj.blink(leds=[buttonsObj.activeButton],n=None,on_time=config['led_on_time'],off_time=config['led_off_time'],
             fade_in_time=config['led_fade_in'],fade_out_time=config['led_fade_out'])
     logging.info('Main loop started')
-    
     utils.speak_status('{}/{}.wav'.format(working_dir,'ready_LAT'))
+    sleep(1)
+    utils.speak_ip(ip=utils.get_IP(),lang='lat',dir=working_dir)
     #Main loop+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     while bcrObj.running:
         #Pat watchdog
