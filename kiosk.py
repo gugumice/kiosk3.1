@@ -18,7 +18,7 @@ def make_URL(bar_code,lang):
     req_code = re.search(config['bc_regex'],bar_code)
     if req_code is not None:
         req_code = req_code.group(0)
-        req_code=req_code.replace('#','%23')
+        req_code = req_code.replace('#','%23')
         return(config['url'].format(config['host'],req_code,lang))
     return(None)
 
@@ -32,7 +32,7 @@ def print_report(bc,lang,url):
                 0 - Printing error
     '''
     server_response = kiocurl.get_report(url,config['report_delay'])
-    if server_response[0]==200:
+    if server_response[0] == 200:
         job_id = None
         try:
             prnObj.cancelAllJobs(prnObj.name)
@@ -45,7 +45,7 @@ def print_report(bc,lang,url):
         except Exception as e:
             logging.error(e)
             return(0)
-    elif server_response[0]==404:
+    elif server_response[0] == 404:
         #Request is valid but has no tests finished
         logging.info('Report: {} no tests, lang: {}, http resp: #{}'.format(bc,lang, server_response[0]))
         utils.speak_status('{}/not_ready{}.wav'.format(working_dir,lang))
@@ -155,7 +155,7 @@ def main():
     #Initialize pheripherials
     init_kiosk()
     #Set default language
-    lang=config['languages'][config['default_button']]
+    lang = config['languages'][config['default_button']]
     #Do not block repeated printing at startup
     ledsObj.off()
     if config['button_panel']:
@@ -185,7 +185,7 @@ def main():
         if len(bc)==0:
             #Nothing scanned - loop
             continue
-        url=make_URL(bc,lang)
+        url = make_URL(bc,lang)
         logging.debug('Printing {},{}'.format(lang,url))
         utils.speak_status('{}/start_print{}.wav'.format(working_dir,lang.upper()))
         ledsObj.blink(on_time=.2,off_time=.2,fade_in_time=.1,fade_out_time=.1,n=None)
