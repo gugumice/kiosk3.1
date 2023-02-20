@@ -7,7 +7,7 @@ from time import sleep
 class barCodeReader(object):
     def __init__(self, port = '/dev/ttyACM0', timeout=1) -> None:
         self.port = port
-        self.timeout=1
+        self.timeout=timeout
         self.running = False
         self._serial = None
         self._prev_errno = None
