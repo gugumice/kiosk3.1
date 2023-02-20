@@ -136,7 +136,7 @@ def init_kiosk():
 
 def main():
     run_directory = os.path.dirname(os.path.realpath(__file__))
-    parser = argparse.ArgumentParser(description='Find duplicate scans')
+    parser = argparse.ArgumentParser(description='EGL testing report kiosk')
     parser.add_argument('-c','--config',
                         type=str,
                         metavar='file',
