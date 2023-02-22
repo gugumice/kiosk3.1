@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import configparser
 import logging
-import json
 import os
 
 def read_config(filename):
@@ -69,7 +68,7 @@ def read_config(filename):
         kiosk_config['report_delay'] = cf.getint('REPORT','report_delay')
         kiosk_config['url'] = cf.get('REPORT','url')
         kiosk_config['button_printer_reset'] = cf.getlist('REPORT','button_printer_reset')
-        kiosk_config['printers'] = json.loads(cf.get('REPORT','printers'))
+        kiosk_config['printers'] = cf.get('REPORT','printers')
         kiosk_config['watchdog_device'] = cf.get('WATCHDOG','watchdog_device')
     except configparser.Error as e:
         logging.error(e)
