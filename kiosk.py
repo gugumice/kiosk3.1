@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 import logging
+import json
 from time import sleep, time
 import os,re
 import gpiolib,bclib,kioconfig,kioprinter
@@ -80,7 +81,7 @@ def init_kiosk():
     buttonsObj  = gpiolib.kioskButtons(pins=config['button_pins'],default=config['default_button'],timeout=config['button_timeout'])
     ledsObj = gpiolib.kioskPWMLeds(pins=config['led_pins'])
     bcrObj=bclib.barCodeReader(port=config['bc_reader_port'], timeout = config['bc_timeout'],)
-    prnObj = kioprinter.kioPrinter(config['printers'],testpage=True)
+    prnObj = kioprinter.kioPrinter(json.loads(config['printers']),testpage=True)
     working_dir=os.path.dirname(os.path.realpath(__file__))
 
     logging.info('IP address: {}'.format(utils.get_IP()))
